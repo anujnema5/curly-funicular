@@ -1,22 +1,24 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: 'ChordsCo - Get Simplified Guitar, Ukulele & Piano chords',
+  author: 'ChordsCo',
+  headerTitle: 'ChordsCo',
+  description:
+    'Learn underrated songs on guitar, ukulele and piano. Get accurate and easy to follow chords for unpopular and non available songs.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://www.chordsco.com',
+  // siteRepo: 'https://github.com/anujnema5/chordsco',
   siteLogo: '/static/images/logo.png',
+  image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  email: 'chordscoweb@gmail.com',
+  github: 'https://github.com/chordsco',
+  twitter: 'https://twitter.com/chordscoweb',
+  facebook: 'https://www.facebook.com/people/Chordsco/100093518165830/',
+  youtube: 'https://www.youtube.com/@chordsco',
+  linkedin: 'https://www.linkedin.com/company/chordsco/',
+  instagram: 'https://www.instagram.com/chordsco/',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -27,7 +29,7 @@ const siteMetadata = {
       umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
     },
     // plausibleAnalytics: {
-    //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-chords.vercel.app
     // },
     // simpleAnalytics: {},
     // posthogAnalytics: {

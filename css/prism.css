@@ -73,7 +73,7 @@
   color: rgb(128, 203, 196);
 }
 
-.token.tag,
+.token.category,
 .token.operator,
 .token.keyword {
   color: rgb(127, 219, 202);

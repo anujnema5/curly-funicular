@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import { ChevronRightIcon } from '@heroicons/react/20/solid'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -36,9 +37,8 @@ const MobileNav = () => {
         </svg>
       </button>
       <div
-        className={`fixed left-0 top-0 z-10 h-full w-full transform opacity-95 dark:opacity-[0.98] bg-white duration-300 ease-in-out dark:bg-gray-950 ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed left-0 top-0 z-10 h-full w-full transform opacity-95 dark:opacity-[0.98] bg-white duration-300 ease-in-out dark:bg-gray-950 ${navShow ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex justify-end">
           <button className="mr-8 mt-11 h-8 w-8" aria-label="Toggle Menu" onClick={onToggleNav}>
@@ -57,17 +57,49 @@ const MobileNav = () => {
           </button>
         </div>
         <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link) => (
-            <div key={link.title} className="px-12 py-4">
-              <Link
-                href={link.href}
-                className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                onClick={onToggleNav}
-              >
-                {link.title}
-              </Link>
-            </div>
-          ))}
+        {headerNavLinks?.map((link, i) => {
+            if (link.type !== 'dropdown') {
+              return (
+                <div key={link.title} className="px-12 py-4 flex items-center">
+                  <Link
+                    href={link.href || ''}
+                    className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                    onClick={onToggleNav}
+                  >
+                    {link.title}
+                  </Link>
+                  <ChevronRightIcon
+                  onClick={onToggleNav}
+                    className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+                    aria-hidden="true"
+                  />
+                </div>
+              )
+            }
+
+            return (
+              <div key={`${link}-${i}`}>
+                {link.links.map((item, i) => (
+                  <div key={`${item.href}-${i}`} className="flex items-center px-12 py-4">
+                    <Link
+                      href={item.href}
+                      className="mono-type text-2xl font-bold tracking-widest dark:text-gray-100 text-gray-800"
+                      onClick={onToggleNav}
+                    >
+                      {item.title}
+                      
+                    </Link>
+                    <Link href={item.href} onClick={onToggleNav}>
+                      <ChevronRightIcon
+                        className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )
+          })}
         </nav>
       </div>
     </>

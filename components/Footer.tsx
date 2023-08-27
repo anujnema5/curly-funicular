@@ -1,6 +1,7 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import footerNavLink from '@/data/footerNavLinks'
 
 export default function Footer() {
   return (
@@ -19,12 +20,16 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+          <span>All rights reserved</span>
         </div>
-        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            Tailwind Nextjs Theme
-          </Link>
+        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400 flex flex-wrap items-center justify-center lg:gap-3 gap-2">
+          {footerNavLink?.map((link) => (
+            <Link href={link.href} className='hover:text-primary-500'>
+              {`${link.title}`} 
+              
+            </Link>
+          ))}
+
         </div>
       </div>
     </footer>

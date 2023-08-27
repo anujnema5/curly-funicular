@@ -5,20 +5,20 @@ import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import type { chords } from 'contentlayer/generated'
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
+import Category from '@/components/Category'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
+import categoryData from 'app/category-data.json'
 
 interface PaginationProps {
   totalPages: number
   currentPage: number
 }
 interface ListLayoutProps {
-  posts: CoreContent<Blog>[]
+  posts: CoreContent<chords>[]
   title: string
-  initialDisplayPosts?: CoreContent<Blog>[]
+  initialDisplayPosts?: CoreContent<chords>[]
   pagination?: PaginationProps
 }
 
@@ -69,9 +69,9 @@ export default function ListLayoutWithTags({
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const categoryCounts = categoryData as Record<string, number>
+  const categoryKeys = Object.keys(categoryCounts)
+  const sortedcategories = categoryKeys.sort((a, b) => categoryCounts[b] - categoryCounts[a])
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
@@ -86,31 +86,31 @@ export default function ListLayoutWithTags({
         <div className="flex sm:space-x-24">
           <div className="hidden max-h-screen h-full sm:flex flex-wrap bg-gray-50 dark:bg-gray-900/70 shadow-md pt-5 dark:shadow-gray-800/40 rounded min-w-[280px] max-w-[280px] overflow-auto">
             <div className="py-4 px-6">
-              {pathname.startsWith('/blog') ? (
+              {pathname.startsWith('/chords') ? (
                 <h3 className="text-primary-500 font-bold uppercase">All Posts</h3>
               ) : (
                 <Link
-                  href={`/blog`}
+                  href={`/chords`}
                   className="font-bold uppercase text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"
                 >
                   All Posts
                 </Link>
               )}
               <ul>
-                {sortedTags.map((t) => {
+                {sortedcategories.map((t) => {
                   return (
                     <li key={t} className="my-3">
-                      {pathname.split('/tags/')[1] === slug(t) ? (
+                      {pathname.split('/category/')[1] === slug(t) ? (
                         <h3 className="inline py-2 px-3 uppercase text-sm font-bold text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
+                          {`${t} (${categoryCounts[t]})`}
                         </h3>
                       ) : (
                         <Link
-                          href={`/tags/${slug(t)}`}
+                          href={`/category/${slug(t)}`}
                           className="py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"
-                          aria-label={`View posts tagged ${t}`}
+                          aria-label={`View posts categoryged ${t}`}
                         >
-                          {`${t} (${tagCounts[t]})`}
+                          {`${t} (${categoryCounts[t]})`}
                         </Link>
                       )}
                     </li>
@@ -122,7 +122,7 @@ export default function ListLayoutWithTags({
           <div>
             <ul>
               {displayPosts.map((post) => {
-                const { path, date, title, summary, tags } = post
+                const { path, date, title, summary, category } = post
                 return (
                   <li key={path} className="py-5">
                     <article className="space-y-2 flex flex-col xl:space-y-0">
@@ -140,7 +140,7 @@ export default function ListLayoutWithTags({
                             </Link>
                           </h2>
                           <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                            {category?.map((category) => <Category key={category} text={category} />)}
                           </div>
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">

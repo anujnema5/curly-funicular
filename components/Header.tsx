@@ -5,6 +5,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import Dropdown from './Dropdown'
 
 const Header = () => {
   return (
@@ -25,18 +26,28 @@ const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
+      <div className="flex items-center justify-center leading-5 space-x-4 sm:space-x-8">
         {headerNavLinks
           .filter((link) => link.href !== '/')
-          .map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              className="hidden sm:block font-medium text-gray-900 dark:text-gray-100"
-            >
-              {link.title}
-            </Link>
-          ))}
+          .map((link) => {
+            if (link.type !== 'dropdown') {
+
+              return (
+                <Link
+                  key={link.title}
+                  href={link.href || ''}
+                  className="hidden sm:block font-medium text-gray-900 dark:text-gray-100"
+                >
+                  {link.title}
+                </Link>
+              )
+            } if (link.type === 'dropdown') {
+              return (
+                <Dropdown links={link.links}/>
+                // <h1>Hello</h1>
+              )
+            }
+          })}
         <SearchButton />
         <ThemeSwitch />
         <MobileNav />

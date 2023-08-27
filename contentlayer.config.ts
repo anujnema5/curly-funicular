@@ -42,46 +42,46 @@ const computedFields: ComputedFields = {
 }
 
 /**
- * Count the occurrences of all tags across blog posts and write to json file
+ * Count the occurrences of all categories across chords posts and write to json file
  */
-function createTagCount(allBlogs) {
-  const tagCount: Record<string, number> = {}
-  allBlogs.forEach((file) => {
-    if (file.tags && file.draft !== true) {
-      file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
+function createcategoryCount(allChords) {
+  const categoryCount: Record<string, number> = {}
+  allChords.forEach((file) => {
+    if (file.category && file.draft !== true) {
+      file.category.forEach((category) => {
+        const formattedcategory = GithubSlugger.slug(category)
+        if (formattedcategory in categoryCount) {
+          categoryCount[formattedcategory] += 1
         } else {
-          tagCount[formattedTag] = 1
+          categoryCount[formattedcategory] = 1
         }
       })
     }
   })
-  writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync('./app/category-data.json', JSON.stringify(categoryCount))
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allChords) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+      JSON.stringify(allCoreContent(sortPosts(allChords)))
     )
     console.log('Local search index generated...')
   }
 }
 
-export const Blog = defineDocumentType(() => ({
-  name: 'Blog',
-  filePathPattern: 'blog/**/*.mdx',
+export const Chords = defineDocumentType(() => ({
+  name: 'chords',
+  filePathPattern: 'chords/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
+    category: { type: 'list', of: { type: 'string' }, default: [] },
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
@@ -97,7 +97,7 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => ({
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
+        '@type': 'chordsPosting',
         headline: doc.title,
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
@@ -128,9 +128,21 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Pages = defineDocumentType(()=> ({
+  name: 'Pages',
+  filePathPattern: 'pages/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: {type: 'string', required: true},
+    description : {type: 'string', required: true},
+    date: { type: 'date', required: true }
+  }
+}))
+
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Chords, Authors, Pages],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -150,8 +162,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
-    createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
+    const { allChords } = await importData()
+    createcategoryCount(allChords)
+    createSearchIndex(allChords)
   },
 })
