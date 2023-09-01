@@ -10,6 +10,7 @@ import Link from '@/components/Link'
 import Category from '@/components/Category'
 import siteMetadata from '@/data/siteMetadata'
 import categoryData from 'app/category-data.json'
+import Image from 'next/image'
 
 interface PaginationProps {
   totalPages: number
@@ -78,7 +79,7 @@ export default function ListLayoutWithTags({
   return (
     <>
       <div>
-        <div className="pb-6 pt-6">
+        <div className="pb-3 pt-6">
           <h1 className="sm:hidden text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {title}
           </h1>
@@ -122,29 +123,38 @@ export default function ListLayoutWithTags({
           <div>
             <ul>
               {displayPosts.map((post) => {
-                const { path, date, title, summary, category } = post
+                const { path, date, title, summary, category, images } = post
                 return (
                   <li key={path} className="py-5">
                     <article className="space-y-2 flex flex-col xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {category?.map((category) => <Category key={category} text={category} />)}
+                      <div className='sm:flex xl:flex-row sm:flex-col gap-5 justify-center items-center'>
+                        {images?.length !== 0 ? 
+                        <Image src={`${images[0]}`} className='xl:w-48 xl:h-52 rounded-md h-7/12 w-full ' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000} /> :
+                          <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>
+                        }
+                        <div className='mt-4'>
+                          <dl>
+                            <dt className="sr-only">Published on</dt>
+                            <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                              <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                            </dd>
+                          </dl>
+                          <div className="space-y-3">
+                            <div>
+                              <h2 className="sm:text-2xl text-xl font-bold leading-8 tracking-tight">
+                                <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
+                                  {title}
+                                </Link>
+                              </h2>
+                              <div className="flex flex-wrap">
+                                {category?.map((category) => 
+                                <Category key={category} text={category} />)}
+                              </div>
+                            </div>
+                            <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                              {summary}
+                            </div>
                           </div>
-                        </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
                         </div>
                       </div>
                     </article>

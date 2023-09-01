@@ -125,7 +125,9 @@ export const Authors = defineDocumentType(() => ({
     github: { type: 'string' },
     layout: { type: 'string' },
   },
-  computedFields,
+  computedFields : {
+    ...computedFields
+  },
 }))
 
 export const Pages = defineDocumentType(()=> ({
@@ -136,6 +138,9 @@ export const Pages = defineDocumentType(()=> ({
     title: {type: 'string', required: true},
     description : {type: 'string', required: true},
     date: { type: 'date', required: true }
+  },
+  computedFields : {
+    ...computedFields
   }
 }))
 
