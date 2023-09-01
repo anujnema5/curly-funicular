@@ -128,8 +128,8 @@ export default function ListLayoutWithTags({
                   <li key={path} className="py-5">
                     <article className="space-y-2 flex flex-col xl:space-y-0">
                       <div className='sm:flex xl:flex-row sm:flex-col gap-5 justify-center items-center'>
-                        {images?.length !== 0 ? 
-                        <Image src={`${images[0]}`} className='xl:w-48 xl:h-52 rounded-md h-7/12 w-full ' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000} /> :
+                        {images && images?.length !== 0 ? 
+                        <Image src={images[0]} className='xl:w-48 xl:h-52 rounded-md h-7/12 w-full ' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000} /> :
                           <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>
                         }
                         <div className='mt-4'>
