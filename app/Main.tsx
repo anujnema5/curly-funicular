@@ -116,7 +116,7 @@ export default function Home({ posts }) {
               const { slug, date, title, summary, category, images } = post
 
               return (
-                <li>
+                <li key={title}>
                   <article>
                     <div className='lg:w-full lg:h-full xl:h-44 lg:flex xl:flex-row lg:flex-col border border-gray-700/40 rounded-xl hover:scale-105 transition-all ease-in-out'>
 
@@ -145,6 +145,7 @@ export default function Home({ posts }) {
                         <div className="flex gap-2 py-3 flex-wrap">
                           {category.slice(0, 3).map((category) => (
                             <Link
+                            key={category}
                               href={`/category/${gitSlug(category)}`}
                               className="px-2 py-1 bg-primary-700/10 rounded-md text-[0.7rem] font-medium uppercase text-primary-700 hover:text-primary-600 dark:hover:text-primary-400"
                             >
@@ -199,7 +200,7 @@ export default function Home({ posts }) {
               const { slug, date, title, summary, category, images } = post
 
               return (
-                <li>
+                <li key={title}>
                   <article>
                     <div className='lg:w-full lg:h-full xl:h-44 lg:flex xl:flex-row lg:flex-col border border-gray-700/40 rounded-xl hover:scale-105 transition-all ease-in-out'>
 
@@ -228,6 +229,7 @@ export default function Home({ posts }) {
                         <div className="flex gap-2 py-3 flex-wrap">
                           {category.slice(0, 3).map((category) => (
                             <Link
+                            key={category}
                               href={`/category/${gitSlug(category)}`}
                               className="px-2 py-1 bg-primary-700/10 rounded-md text-[0.7rem] font-medium uppercase text-primary-700 hover:text-primary-600 dark:hover:text-primary-400"
                             >
