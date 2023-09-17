@@ -43,7 +43,6 @@ const Header = () => {
             } if (link.type === 'dropdown') {
               return (
                 <Dropdown key={index} links={link.links} />
-                // <h1>Hello</h1>
               )
             }
           })}
