@@ -7,8 +7,7 @@ import PostLayout from '@/layouts/PostSimple'
 import siteMetadata from '@/data/siteMetadata'
 
 export const metadata = genPageMetadata({
-  title: `Terms and Conditions - ${siteMetadata.headerTitle}`, description: `These terms and conditions outline the rules and regulations for the use of ChordsCo's
-Website, located at https://www.chordsco.com.` })
+  title: `DMCA - ${siteMetadata.headerTitle}`, description: `DMCA policy · What to consider before submitting a copyright complaint · Notifications of infringement · Changes and amendments · Reporting copyright infringement.` })
 
 function TermsAndConditions() {
   const author = allPages.find((p) => p.title === 'DMCA') as Pages
@@ -16,7 +15,6 @@ function TermsAndConditions() {
   return (
     <PostLayout content={mainContent}>
       <MDXLayoutRenderer code={author.body.code} />
-      
     </PostLayout>
   )
 }

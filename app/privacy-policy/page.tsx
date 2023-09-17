@@ -5,7 +5,7 @@ import { coreContent } from 'pliny/utils/contentlayer'
 import { genPageMetadata } from 'app/seo'
 import PostLayout from '@/layouts/PostSimple'
 
-export const metadata = genPageMetadata({ title: 'About - ChordsCo', description: 'Welcome to chordsco our website is about chords and lyrics Our platform is the perfect destination for musicians who want to master their favorite songs.' })
+export const metadata = genPageMetadata({ title: 'Privacy Policy - ChordsCo', description: 'At ChordsCo, accessible from https://chordsco.com, one of our main priorities is the privacy of our visitors.' })
 
 export default function Page() {
     const author = allPages.find((p) => p.title === 'Privacy Policy') as Pages
