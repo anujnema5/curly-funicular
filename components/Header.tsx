@@ -29,9 +29,8 @@ const Header = () => {
       <div className="flex items-center justify-center leading-5 space-x-4 sm:space-x-8">
         {headerNavLinks
           .filter((link) => link.href !== '/')
-          .map((link) => {
+          .map((link, index) => {
             if (link.type !== 'dropdown') {
-
               return (
                 <Link
                   key={link.title}
@@ -43,7 +42,7 @@ const Header = () => {
               )
             } if (link.type === 'dropdown') {
               return (
-                <Dropdown links={link.links}/>
+                <Dropdown key={index} links={link.links} />
                 // <h1>Hello</h1>
               )
             }

@@ -16,13 +16,14 @@ module.exports = {
     'plugin:prettier/recommended',
     'next',
     'next/core-web-vitals',
+    'prettier'
   ],
   parserOptions: {
     project: true,
     tsconfigRootDir: __dirname,
   },
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 0,
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',

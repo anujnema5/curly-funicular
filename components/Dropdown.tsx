@@ -32,7 +32,7 @@ export default function Dropdown({ links }) {
 
           <div className="py-1">
             {links?.map((link) => (
-            <Menu.Item>
+            <Menu.Item key={link.title}>
               {({ active }) => (
                 <Link
                   href={link.href}
