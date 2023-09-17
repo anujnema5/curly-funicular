@@ -35,7 +35,7 @@ export default function Home({ posts }) {
                       </dd>
                     </dl> */}
                     {images.length !==0 ? 
-                    <Image src={images[0]} className='sm:w-72 sm:h-60 rounded-md' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000}/> : <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>}
+                    <Image src={images[0]} className='sm:w-72 sm:h-60 rounded-md w-full max-h-72' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000}/> : <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>}
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-3">
                       <dl>
@@ -53,7 +53,7 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex sm:mt-2 mt-4 flex-wrap">
+                          <div className="flex sm:mt-1 mt-1 flex-wrap">
                             {category.map((category) => (
                               <Category key={category} text={category} />
                             ))}
@@ -69,7 +69,7 @@ export default function Home({ posts }) {
                           className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                           aria-label={`Read "${title}"`}
                         >
-                          Read more &rarr;
+                          Play song &rarr;
                         </Link>
                       </div>
                     </div>

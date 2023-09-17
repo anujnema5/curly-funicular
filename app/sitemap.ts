@@ -7,12 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const site = [{
     url: siteMetadata.siteUrl,
     lastModified: new Date().toISOString().split('T')[0],
-    priority : 0.8
+    priority : 1
   }]
   const chordsRoutes = allChords.map((post) => ({
     url: `${siteUrl}/${post.path}`,
     lastModified: post.lastmod || post.date,
-    priority : 0.8
+    priority : 0.9
   }))
 
   const pagesRoutes = allPages.map((page) => ({
