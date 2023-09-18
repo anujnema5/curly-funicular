@@ -10,21 +10,21 @@ const MAX_DISPLAY = 5
 function ArticleLayout({posts, title}) {
   return (
     <React.Fragment>
-          <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold'>{title} <span className='text-gray-200'>Chords &rarr;</span></h1>
+          <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='text-gray-200'>Chords &rarr;</span></h1>
 
-          <span className='text-gray-400 text-base'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
+          <span className='text-gray-400 text-base px-1'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
 
-          <ul className='lg:py-7 grid sm:grid-cols-2 grid-cols-1 xl:gap-7 gap-8 pt-10'>
+          <ul className='lg:py-7 grid sm:grid-cols-2 grid-cols-1 xl:gap-7 gap-8 pt-10 px-1'>
             {posts.slice(0, 10).map((post) => {
               const { slug, date, title, summary, category, images } = post
 
               return (
                 <li key={title}>
                   <article>
-                    <div className='lg:w-full lg:h-full xl:h-44 lg:flex xl:flex-row lg:flex-col border border-gray-700/40 rounded-xl hover:scale-105 transition-all ease-in-out'>
+                    <div className='lg:w-full lg:h-full xl:h-44 lg:flex xl:flex-row lg:flex-col border border-gray-700/60 rounded-xl hover:scale-105 transition-all ease-in-out '>
 
                       <div className="">
-                        <Image src={images[0]} alt='thumbnail' width={500} height={200} className='xl:h-full xl:w-full lg:h-1/2 w-full h-72 rounded-t-lg xl:rounded-l-lg' />
+                        <Image src={images[0]} alt='thumbnail' width={300} height={100} className='xl:h-full xl:w-full lg:h-1/2 w-full h-64 rounded-t-lg xl:rounded-l-lg' />
                       </div>
 
                       <div className='flex-auto flex flex-col justify-center items-left lg:p-5 p-4 hover:bg-gray-800/10'>
