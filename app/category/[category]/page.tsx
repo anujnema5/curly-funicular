@@ -35,7 +35,7 @@ export default function categoryPage({ params }: { params: { category: string } 
   // Capitalize first letter and convert space to dash
   const title = category[0].toUpperCase() + category.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
-    allChords.filter((post) => post.category && post.category.map((t) => slug(t)).includes(category))
-    )
+    allChords.filter((post) => post.category && post.category.map((t) => slug(t)).includes(category)))
+
   return <ListLayout posts={filteredPosts} title={title} />
 }
