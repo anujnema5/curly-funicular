@@ -7,7 +7,7 @@ import React from 'react'
 
 const MAX_DISPLAY = 5
 
-function ArticleLayout({posts, title}) {
+function ArticleLayout({posts, title, slug}) {
   return (
     <React.Fragment>
           <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='dark:text-gray-200 text-gray-600'>Chords &rarr;</span></h1>
@@ -81,7 +81,7 @@ function ArticleLayout({posts, title}) {
           {posts.length > MAX_DISPLAY && (
             <div className="flex justify-end text-base font-medium leading-6">
               <Link
-                href="/category/ukulele-chords"
+                href={`/category/${slug}`}
                 className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 aria-label="All posts"
               >

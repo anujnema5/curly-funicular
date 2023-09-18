@@ -102,11 +102,11 @@ export default function Home({ posts }) {
       )}
 
       {ukulelePosts && (
-        <ArticleLayout posts={ukulelePosts} title={"Ukulele"}/>
+        <ArticleLayout posts={ukulelePosts} title={"Ukulele"} slug={'ukulele-chords'}/>
       )}
 
       {newReleased && (
-        <ArticleLayout posts={newReleased} title={"New Released"}/>
+        <ArticleLayout posts={newReleased} title={"New Released"} slug={'new-released'}/>
       )}
 
     </>
