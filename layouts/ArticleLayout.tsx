@@ -10,7 +10,7 @@ const MAX_DISPLAY = 5
 function ArticleLayout({posts, title}) {
   return (
     <React.Fragment>
-          <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='text-gray-200'>Chords &rarr;</span></h1>
+          <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='dark:text-gray-200 text-gray-600'>Chords &rarr;</span></h1>
 
           <span className='text-gray-400 text-base px-1'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
 
@@ -27,7 +27,7 @@ function ArticleLayout({posts, title}) {
                         <Image src={images[0]} alt='thumbnail' width={300} height={100} className='xl:h-full xl:w-full lg:h-1/2 w-full h-64 rounded-t-lg xl:rounded-l-lg' />
                       </div>
 
-                      <div className='flex-auto flex flex-col justify-center items-left lg:p-5 p-4 hover:bg-gray-800/10'>
+                      <div className='flex-auto flex flex-col justify-center items-left lg:p-5 p-4 dark:hover:bg-gray-800/10 hover:bg-gray-100/80 transition-all ease-in-out duration-150'>
                         <dl>
                           <dt className="sr-only">Published on</dt>
                           <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
