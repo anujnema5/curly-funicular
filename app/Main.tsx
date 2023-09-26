@@ -21,9 +21,11 @@ export default function Home({ posts }) {
     return post?.category.includes('new released');
   });
 
+  
+
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="divide-y divide-gray-200 dark:divide-gray-800">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
             Latest Songs
@@ -32,7 +34,7 @@ export default function Home({ posts }) {
             {siteMetadata.description}
           </p>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+        <ul className="divide-y divide-gray-200 dark:divide-gray-800">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, category, images } = post
@@ -41,7 +43,7 @@ export default function Home({ posts }) {
               <li key={slug} className="py-8">
                 <article>
                   <div className={"flex flex-col sm:flex-row gap-7 items-center justify-center px-1"}>
-                    
+
                     {images.length !== 0 ?
                       <Image src={images[0]} className='sm:w-72 sm:h-60 rounded-md w-full max-h-72' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000} /> : <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>}
                     <div className="space-y-5 xl:col-span-3">
@@ -102,11 +104,11 @@ export default function Home({ posts }) {
       )}
 
       {ukulelePosts && (
-        <ArticleLayout posts={ukulelePosts} title={"Ukulele"} slug={'ukulele-chords'}/>
+        <ArticleLayout posts={ukulelePosts.slice(0, MAX_DISPLAY)} title={"Ukulele"} slug={'ukulele-chords'} />
       )}
 
       {newReleased && (
-        <ArticleLayout posts={newReleased} title={"New Released"} slug={'new-released'}/>
+        <ArticleLayout posts={newReleased.slice(0, MAX_DISPLAY)} title={"New Released"} slug={'new-released'} />
       )}
 
     </>
