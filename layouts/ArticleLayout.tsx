@@ -43,7 +43,7 @@ function ArticleLayout({ posts, title, slug }) {
                             {title}
                           </Link>
                         </h2>
-                        <div className="flex lg:gap-3 gap-0 sm:mt-2 mt-1 flex-wrap">
+                        <div className="flex lg:gap-5 gap-0 sm:mt-2 mt-1 flex-wrap">
                           {category.map((category) => (
                             <Category key={category} text={category} />
                           ))}
