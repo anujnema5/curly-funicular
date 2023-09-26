@@ -146,7 +146,7 @@ export default function ListLayoutWithTags({
                                   {title}
                                 </Link>
                               </h2>
-                              <div className="flex lg:gap-3 gap-5 flex-wrap">
+                              <div className="flex lg:gap-3 gap-5 lg:mt-2 mt-1 flex-wrap">
                                 {category?.map((category) => 
                                 <Category key={category} text={category} />)}
                               </div>
