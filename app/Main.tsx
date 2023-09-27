@@ -14,11 +14,11 @@ export default function Home({ posts }) {
 
   // FETCHING ONLY UKULELE CHORDS
   const ukulelePosts = posts?.filter((post) => {
-    return post?.category.includes('rock bands');
+    return post?.category.includes('ukulele chords');
   });
 
   const newReleased = posts?.filter((post) => {
-    return post?.category.includes('new released');
+    return post?.category.includes('piano chords');
   });
 
   
@@ -63,7 +63,7 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex lg:gap-3 gap-0 sm:mt-2 mt-1 flex-wrap">
+                          <div className="flex lg:gap-5 gap-3 sm:mt-2 mt-3 flex-wrap">
                             {category.map((category) => (
                               <Category key={category} text={category} />
                             ))}
@@ -108,7 +108,7 @@ export default function Home({ posts }) {
       )}
 
       {newReleased && (
-        <ArticleLayout posts={newReleased.slice(0, MAX_DISPLAY)} title={"New Released"} slug={'new-released'} />
+        <ArticleLayout posts={newReleased.slice(0, MAX_DISPLAY)} title={"Piano"} slug={'piano-chords'} />
       )}
 
     </>
