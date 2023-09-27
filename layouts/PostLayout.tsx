@@ -116,7 +116,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       categories
                     </h2>
-                    <div className="flex flex-wrap">
+                    <div className="flex gap-3 flex-wrap">
                       {category.map((category) => (
                         <Category key={category} text={category} />
                       ))}
