@@ -113,10 +113,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {category && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <h3 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       categories
-                    </h2>
-                    <div className="flex gap-3 mt-1 flex-wrap">
+                    </h3>
+                    <div className="flex gap-2 mt-1 flex-wrap">
                       {category.map((category) => (
                         <Category key={category} text={category} />
                       ))}
@@ -127,9 +127,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex flex-col gap-5 justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h4 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Previous Article
-                        </h2>
+                        </h4>
                         <div className="text-primary-500 hover:text-primary-600 mt-1 dark:hover:text-primary-400">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
                         </div>
@@ -137,9 +137,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h4 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Next Article
-                        </h2>
+                        </h4>
                         <div className="text-primary-500 hover:text-primary-600 mt-1 dark:hover:text-primary-400">
                           <Link href={`/${next.path}`}>{next.title}</Link>
                         </div>
