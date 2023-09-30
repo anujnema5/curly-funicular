@@ -21,8 +21,6 @@ export default function Home({ posts }) {
     return post?.category.includes('piano chords');
   });
 
-  
-
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-800">
@@ -45,7 +43,7 @@ export default function Home({ posts }) {
                   <div className={"flex flex-col sm:flex-row gap-7 items-center justify-center px-1"}>
 
                     {images.length !== 0 ?
-                      <Image src={images[0]} className='sm:w-72 sm:h-60 rounded-md w-full max-h-72' alt='thumbnail' aria-label='Thumnail Image for Post' width={1000} height={1000} /> : <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>}
+                      <Image src={images[0]} className='sm:w-72 sm:h-60 rounded-md w-full max-h-72' alt='thumbnail' aria-label='Thumnail Image for Post' width={300} height={300} /> : <div className='sm:w-72 sm:h-60 w-full h-56 rounded-md bg-gray-800/50 flex items-center justify-center text-gray-400'>Insert Image</div>}
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-3">
                         <dl>
