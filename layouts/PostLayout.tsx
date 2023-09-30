@@ -65,8 +65,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       {author.avatar && (
                         <Image
                           src={author.avatar}
-                          width={1000}
-                          height={1000}
+                          width={300}
+                          height={300}
                           alt="avatar"
                           className="h-10 w-10 rounded-full"
                         />
