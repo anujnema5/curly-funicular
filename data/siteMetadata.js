@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'ChordsCo',
   headerTitle: 'ChordsCo',
   description:
-    'Learn popular and lesser known songs on guitar, ukulele and piano. Get accurate and easy-to-follow chords notations',
+    'Learn popular and lesser known songs on guitar, ukulele and piano. Get accurate and easy-to-follow chords notations.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.chordsco.com',
