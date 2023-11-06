@@ -37,7 +37,7 @@ export default function Dropdown({ links }) {
                 <Link
                   href={link.href}
                   className={classNames(
-                    active ? 'dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-primary-500/70  dark:ring-gray-700 hover:bg-gray-300 rounded-md' : 'dark:text-gray-100',
+                    active ? 'dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-primary-700  dark:ring-gray-700 hover:bg-gray-300 rounded-md' : 'dark:text-gray-100',
                     'block px-4 py-2 text-sm'
                   )}
                 >
