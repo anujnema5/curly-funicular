@@ -11,7 +11,7 @@ const MAX_DISPLAY = 5
 function ArticleLayout({ posts, title, slug }) {
   return (
     <React.Fragment>
-      <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-500 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='dark:text-gray-200 text-gray-600'>Chords &rarr;</span></h1>
+      <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-600 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='dark:text-gray-200 text-gray-600'>Chords &rarr;</span></h1>
 
       <span className='text-gray-400 text-base px-1'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
 
@@ -56,7 +56,7 @@ function ArticleLayout({ posts, title, slug }) {
                     <div className="text-base font-medium leading-6">
                       <Link
                         href={`/chords/${slug}`}
-                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        className="text-primary-600 hover:text-primary-600 dark:hover:text-primary-400"
                         aria-label={`Read "${title}"`}
                       >
                         Play song &rarr;
@@ -74,7 +74,7 @@ function ArticleLayout({ posts, title, slug }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href={`/category/${slug}`}
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 "
+            className="text-primary-600 hover:text-primary-600 dark:hover:text-primary-400 "
             aria-label="All posts"
           >
             All {title} Songs &rarr;

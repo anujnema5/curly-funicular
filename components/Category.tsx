@@ -8,7 +8,7 @@ const Category = ({ text }: Props) => {
   return (
     <Link
       href={`/category/${slug(text)}`}
-      className="text-sm font-medium uppercase rounded-lg text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+      className="text-sm font-medium uppercase rounded-lg text-primary-600 hover:text-primary-600 dark:hover:text-primary-400"
     >
       {text.split(' ').join('-')}
     </Link>

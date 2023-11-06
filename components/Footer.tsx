@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400 flex flex-wrap items-center justify-center lg:gap-3 gap-2">
           {footerNavLink?.map((link) => (
-            <Link href={link.href} aria-label={link.title} key={link.title} rel="noopener" className='hover:text-primary-500'>
+            <Link href={link.href} aria-label={link.title} key={link.title} rel="noopener" className='hover:text-primary-600'>
               {`${link.title}`} 
             </Link>
           ))}
