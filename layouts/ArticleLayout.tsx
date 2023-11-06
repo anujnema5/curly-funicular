@@ -13,7 +13,7 @@ function ArticleLayout({ posts, title, slug }) {
     <React.Fragment>
       <h1 className='xl:text-3xl lg:text-3xl lg:pt-14 lg:pb-3 pt-8 pb-3 text-primary-600 lg:font-bold text-2xl font-semibold px-1'>{title} <span className='dark:text-gray-200 text-gray-600'>Chords &rarr;</span></h1>
 
-      <span className='text-gray-400 text-base px-1'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
+      <span className='text-gray-600 dark:text-gray-400 text-base px-1'>Checkout the {title} library by {siteMetadata.headerTitle}</span>
 
       <ul className='divide-y divide-gray-200 dark:divide-gray-800'>
         {posts.map((post) => {
