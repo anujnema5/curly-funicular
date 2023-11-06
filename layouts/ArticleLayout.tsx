@@ -57,7 +57,7 @@ function ArticleLayout({ posts, title, slug }) {
                       <Link
                         href={`/chords/${slug}`}
                         className="text-primary-600 hover:text-primary-600 dark:hover:text-primary-400"
-                        aria-label={`Read "${title}"`}
+                        aria-label={`play-song"`}
                       >
                         Play song &rarr;
                       </Link>
@@ -75,7 +75,7 @@ function ArticleLayout({ posts, title, slug }) {
           <Link
             href={`/category/${slug}`}
             className="text-primary-600 hover:text-primary-600 dark:hover:text-primary-400 "
-            aria-label="All posts"
+            aria-label={`all-${title}-songs`}
           >
             All {title} Songs &rarr;
           </Link>
